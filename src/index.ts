@@ -25,7 +25,6 @@ export async function run() {
             run_id: core.getInput("run_id") as any,
         });
         workflow_id = result.data.workflow_id;
-        console.log("workflow_id: ", workflow_id);
     } else {
         workflow_id = core.getInput("workflow_id", { required: true });
     }
@@ -50,19 +49,31 @@ export async function run() {
             return 0;
         });
 
+    let output: any;
     if (commits.length > 0) {
-        core.setOutput("has_commit", true);
-        core.setOutput("commit_author_name", commits[commits.length - 1].author.name);
-        core.setOutput("commit_author_email", commits[commits.length - 1].author.email);
-        core.setOutput("commit_committer_name", commits[commits.length - 1].committer.name);
-        core.setOutput("commit_committer_email", commits[commits.length - 1].committer.email);
-        core.setOutput("commit_message", commits[commits.length - 1].message);
-        core.setOutput("commit_timestamp", commits[commits.length - 1].timestamp);
-        core.setOutput("commit_tree_id", commits[commits.length - 1].tree_id);
-        core.setOutput("commit_sha", commits[commits.length - 1].id);
-        core.setOutput("commit_sha_short", commits[commits.length - 1].id.slice(0, 7));
+        output = {
+            has_commit: true,
+            workflow_id,
+            commit_author_name: commits[commits.length - 1].author.name,
+            commit_author_email: commits[commits.length - 1].author.email,
+            commit_committer_name: commits[commits.length - 1].committer.name,
+            commit_committer_email: commits[commits.length - 1].committer.email,
+            commit_message: commits[commits.length - 1].message,
+            commit_timestamp: commits[commits.length - 1].timestamp,
+            commit_tree_id: commits[commits.length - 1].tree_id,
+            commit_sha: commits[commits.length - 1].id,
+            commit_sha_short: commits[commits.length - 1].id.slice(0, 7),
+        };
     } else {
-        core.setOutput("has_commit", false);
+        output = {
+            has_commit: false,
+            workflow_id,
+        };
+    }
+
+    console.log("Available outputs:");
+    for (const key in output) {
+        console.log(`    ${key}: ${output[key]}`);
     }
 }
 
