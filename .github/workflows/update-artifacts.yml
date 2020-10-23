@@ -1,5 +1,15 @@
 on:
   push:
+    paths:
+      - "src/**/*"
+      - "dist/**/*"
+      - ".nvmrc"
+      - "package.json"
+      - ".yarnrc"
+      - "yarn.lock"
+      - "rollup.config.js"
+      - "tsconfig.json"
+      - "action.yml"
 
 jobs:
   update-artifacts:
@@ -18,13 +28,14 @@ jobs:
 
       - run: yarn -s --frozen-lockfile
 
+      - run: yarn -s generate
       - run: yarn -s build
 
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -m "Add changes" -a
+          git config --local user.name "GitHub Actions"
+          git commit -m "[automated] Update artifacts" -a
 
       - name: Push changes
         uses: ambimax/action-github-push@v1
