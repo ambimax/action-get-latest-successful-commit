@@ -2,6 +2,10 @@ name: Get latest successful commit
 description: Get the latest commit with a successful GitHub Actions workflow run of a given branch
 
 inputs:
+  github_token:
+    description: The github token to use for authentication.
+    required: true
+
   workflow_id:
     description: The workflow id.
     required: true

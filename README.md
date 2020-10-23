@@ -29,6 +29,7 @@ Gets the last successful commit on the current branch.
 <!-- region:parameters start -->
 | Name | description | required | default |
 |-|-|-|-|
+| github_token | The github token to use for authentication. | true |  |
 | workflow_id | The workflow id. | true |  |
 | repository | The repository to look for workflows. | true |  |
 | branch | The branch to check on. Defaults to all branches. | false |  |
