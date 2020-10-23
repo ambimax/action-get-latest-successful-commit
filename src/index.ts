@@ -74,6 +74,7 @@ export async function run() {
     console.log("Available outputs:");
     for (const key in output) {
         console.log(`    ${key}: ${output[key]}`);
+        core.setOutput(key, output[key]);
     }
 }
 
