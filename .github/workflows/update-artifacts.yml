@@ -36,7 +36,8 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Actions"
-          git diff-index --quiet HEAD -- || git commit -m "[automated] Update artifacts" -a
+          git add .
+          git diff-index --cached --quiet HEAD || git commit -m "[automated] Update artifacts"
 
       - name: Push changes
         uses: ambimax/action-github-push@v1
