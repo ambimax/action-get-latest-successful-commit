@@ -15,7 +15,7 @@ declare global {
 export async function run() {
     const oktokit = github.getOctokit(core.getInput("github_token", { required: true }));
 
-    const [owner, repo] = (env.GITHUB_REPOSITORY ?? core.getInput("repository", { required: false })).split("/", 2);
+    const [owner, repo] = (core.getInput("repository", { required: false }) ?? env.GITHUB_REPOSITORY).split("/", 2);
 
     const response = await oktokit.actions.listWorkflowRuns({
         owner,
