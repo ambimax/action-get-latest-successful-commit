@@ -33,7 +33,7 @@ Gets the last successful commit on the current branch.
 | run_id | The workflow run id. You can either specify this or workflow_id. | false |  |
 | workflow_id | The workflow id. You can either specify this or run_id. | false |  |
 | repository | The repository to look for workflows. | true |  |
-| branch | The branch to check on. Defaults to all branches. | false |  |
+| branch | The branch or git ref to check on. Defaults to all branches. | false |  |
 <!-- region:parameters end -->
 
 ## Development

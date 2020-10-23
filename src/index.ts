@@ -35,7 +35,7 @@ export async function run() {
         repo,
         workflow_id,
         status: "success" as never, // typings are wrong
-        branch: core.getInput("branch"),
+        branch: getBranch(),
     });
 
     const commits = response.data.workflow_runs
@@ -64,6 +64,17 @@ export async function run() {
     } else {
         core.setOutput("has_commit", false);
     }
+}
+
+function getBranch() {
+    const branch = core.getInput("branch");
+
+    const headsPrefix = "refs/heads/";
+    if (branch.startsWith(headsPrefix)) {
+        return branch.slice(headsPrefix.length);
+    }
+
+    return branch;
 }
 
 run().catch(console.error);

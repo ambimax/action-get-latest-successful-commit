@@ -19,7 +19,7 @@ inputs:
     required: true
 
   branch:
-    description: The branch to check on. Defaults to all branches.
+    description: The branch or git ref to check on. Defaults to all branches.
     required: false
     default: ""
 
