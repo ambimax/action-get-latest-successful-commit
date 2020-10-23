@@ -1,6 +1,7 @@
 on:
   push:
     paths:
+      - ".github/workflows/update-artifacts.yml"
       - "src/**/*"
       - "dist/**/*"
       - ".nvmrc"
