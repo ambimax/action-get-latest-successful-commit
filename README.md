@@ -17,6 +17,7 @@ Gets the last successful commit on the current branch.
 ```yml
       - uses: ambimax/action-get-latest-successful-commit@v1
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           workflow_id: ${{ github.workflow }}
           repository: ${{ github.repository }}
           branch: ${{ github.ref }}
