@@ -18,7 +18,7 @@ Gets the last successful commit on the current branch.
       - uses: ambimax/action-get-latest-successful-commit@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow_id: ${{ github.workflow }}
+          run_id: ${{ github.run_id }}
           repository: ${{ github.repository }}
           branch: ${{ github.ref }}
 ```
@@ -30,7 +30,8 @@ Gets the last successful commit on the current branch.
 | Name | description | required | default |
 |-|-|-|-|
 | github_token | The github token to use for authentication. | true |  |
-| workflow_id | The workflow id. | true |  |
+| run_id | The workflow run id. You can either specify this or workflow_id. | false |  |
+| workflow_id | The workflow id. You can either specify this or run_id. | false |  |
 | repository | The repository to look for workflows. | true |  |
 | branch | The branch to check on. Defaults to all branches. | false |  |
 <!-- region:parameters end -->

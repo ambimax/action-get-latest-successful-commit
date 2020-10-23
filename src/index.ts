@@ -17,10 +17,22 @@ export async function run() {
 
     const [owner, repo] = (core.getInput("repository", { required: false }) ?? env.GITHUB_REPOSITORY).split("/", 2);
 
+    let workflow_id: any;
+    if (core.getInput("run_id")) {
+        const result = await oktokit.actions.getWorkflowRun({
+            owner,
+            repo,
+            run_id: core.getInput("run_id") as any,
+        });
+        workflow_id = result.data.workflow_id;
+    } else {
+        workflow_id = core.getInput("workflow_id", { required: true });
+    }
+
     const response = await oktokit.actions.listWorkflowRuns({
         owner,
         repo,
-        workflow_id: core.getInput("workflow_id", { required: true }) as never,
+        workflow_id,
         status: "success" as never, // typings are wrong
         branch: core.getInput("branch"),
     });

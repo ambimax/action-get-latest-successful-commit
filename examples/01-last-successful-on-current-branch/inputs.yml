@@ -2,6 +2,6 @@ description: Gets the last successful commit on the current branch.
 
 with:
   github_token: ${{ secrets.GITHUB_TOKEN }}
-  workflow_id: ${{ github.workflow }}
+  run_id: ${{ github.run_id }}
   repository: ${{ github.repository }}
   branch: ${{ github.ref }}

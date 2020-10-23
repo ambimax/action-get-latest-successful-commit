@@ -6,9 +6,13 @@ inputs:
     description: The github token to use for authentication.
     required: true
 
+  run_id:
+    description: The workflow run id. You can either specify this or workflow_id.
+    required: false
+
   workflow_id:
-    description: The workflow id.
-    required: true
+    description: The workflow id. You can either specify this or run_id.
+    required: false
 
   repository:
     description: The repository to look for workflows.
