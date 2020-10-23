@@ -25,6 +25,7 @@ export async function run() {
             run_id: core.getInput("run_id") as any,
         });
         workflow_id = result.data.workflow_id;
+        console.log("workflow_id: ", workflow_id);
     } else {
         workflow_id = core.getInput("workflow_id", { required: true });
     }
