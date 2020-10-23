@@ -7,7 +7,7 @@ export default {
         index: "src/index.ts",
     },
     output: {
-        dir: "lib",
+        dir: "dist",
         format: "cjs",
     },
     plugins: [commonjs(), resolve(), esbuild({ minify: true })],
