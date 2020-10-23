@@ -1,0 +1,24 @@
+name: Get latest successful commit
+description: Get the latest commit with a successful GitHub Actions workflow run of a given branch
+
+inputs:
+  workflow_id:
+    description: The workflow id.
+    required: true
+
+  repository:
+    description: The repository to look for workflows.
+    required: true
+
+  branch:
+    description: The branch to check on. Defaults to all branches.
+    required: false
+    default: ""
+
+branding:
+  icon: "gift"
+  color: "blue"
+
+runs:
+  using: "node12"
+  main: "dist/index.js"

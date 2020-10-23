@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "target": "es2017",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "importsNotUsedAsValues": "error",
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strictBindCallApply": true,
+        "strictFunctionTypes": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true,
+        "alwaysStrict": true,
+        "noFallthroughCasesInSwitch": true,
+        "preserveWatchOutput": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "noEmit": true
+    },
+    "ts-node": {
+        "transpileOnly": true
+    },
+    "include": ["src/**/*"]
+}

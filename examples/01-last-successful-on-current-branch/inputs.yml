@@ -1,0 +1,6 @@
+description: Gets the last successful commit on the current branch.
+
+with:
+  workflow_id: ${{ github.workflow }}
+  repository: ${{ github.repository }}
+  branch: ${{ github.ref }}

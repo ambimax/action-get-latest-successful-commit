@@ -1,0 +1,33 @@
+{
+    "name": "@ambimax/action-get-latest-successful-commit",
+    "version": "0.0.0",
+    "main": "lib/index.js",
+    "repository": "https://github.com/ambimax/action-get-latest-successful-commit.git",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "build": "concurrently -n compile,type-check 'rollup -c' 'tsc'",
+        "watch": "concurrently -n compile,type-check 'rollup -cw' 'tsc -w'",
+        "generate": "ts-node scripts/generate"
+    },
+    "devDependencies": {
+        "@actions/core": "^1.2.6",
+        "@actions/github": "^4.0.0",
+        "@rollup/plugin-commonjs": "^15.1.0",
+        "@rollup/plugin-node-resolve": "^9.0.0",
+        "@types/yaml": "^1.9.7",
+        "concurrently": "^5.3.0",
+        "esbuild": "^0.7.19",
+        "rollup": "^2.32.1",
+        "rollup-plugin-esbuild": "^2.5.2",
+        "ts-node": "^9.0.0",
+        "typescript": "^4.0.3",
+        "yaml": "^1.10.0"
+    },
+    "maintainers": [
+        "Tobias Faust <tf@ambimax.de> (https://github.com/FaustTobias)"
+    ],
+    "contributors": [
+        "Tobias Faust <tf@ambimax.de> (https://github.com/FaustTobias)"
+    ]
+}
